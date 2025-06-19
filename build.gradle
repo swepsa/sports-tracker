@@ -18,37 +18,28 @@ repositories {
 }
 
 dependencies {
-    // Spring Boot Starter Web for building REST APIs
+    // === Spring Boot Starters ===
+    implementation 'org.springframework.boot:spring-boot-starter'
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
-    // Spring Boot Starter for scheduling tasks
-    implementation 'org.springframework.boot:spring-boot-starter'
-
-    // Spring for Apache Kafka
+    // === Kafka ===
     implementation 'org.springframework.kafka:spring-kafka'
 
-    // Springdoc OpenAPI UI for Swagger integration
+    // === OpenAPI (Swagger) ===
     implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0'
 
+    // === Resilience4j ===
     implementation 'io.github.resilience4j:resilience4j-retry:2.0.2'
 
-
-    // Lombok for reducing boilerplate code
+    // === Lombok ===
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 
-    // Validation
-//    implementation 'org.springframework.boot:spring-boot-starter-validation'
-
-    // Testing
+    // === Testing ===
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'com.squareup.okhttp3:mockwebserver:4.12.0'
-    // Testcontainers Kafka
-    testImplementation "org.testcontainers:kafka:1.19.0"  // Use latest stable version
-
-    // Spring Kafka Test utilities
-    testImplementation "org.springframework.kafka:spring-kafka-test:3.0.9" // Match your Spring Kafka version
-
+    testImplementation 'org.testcontainers:kafka:1.19.0'
+    testImplementation 'org.springframework.kafka:spring-kafka-test:3.0.9'
 }
 
 tasks.named('test') {
