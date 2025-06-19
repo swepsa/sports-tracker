@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+custom:
+  secondary-port: 8081
+
+spring:
+  kafka:
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      retries: 5
+      retry-backoff-ms: 1000
+    template:
+      default-topic: live-sports-events
+
+external:
+  api:
+    url: "http://localhost:8081/api/events/{eventId}/score"
+
+kafka:
+  topic: live-sports-events
+
+logging:
+  level:
+    root: INFO
+    com.sports.tracker: DEBUG
